@@ -49,11 +49,42 @@
 </head>
 <body>
   <div class="card">
-    <h2>BSdevock main page</h2>
-    <p>(You need Telegram account in order to use the bot)</p>
-    <a href="https://t.me/DevockBeta/37" class="button">Download apk</a>
-    <a href="https://t.me/close_id_bot" class="button">Forward me to tgbot</a>
-    <a href="https://dsc.gg/AllBrawl" class="button">Our Discord server</a>
+    <h2 id="title">BSdevock main page</h2>
+    <p id="description">(You need Telegram account in order to use the bot)</p>
+    <a href="https://t.me/DevockBeta/37" class="button" id="download">Download apk</a>
+    <a href="https://t.me/close_id_bot" class="button" id="telegram">Forward me to tgbot</a>
+    <a href="https://dsc.gg/AllBrawl" class="button" id="discord">Our Discord server</a>
   </div>
+
+  <script>
+    // Language translations
+    const translations = {
+      en: {
+        title: "BSdevock main page",
+        description: "(You need Telegram account in order to use the bot)",
+        download: "Download apk",
+        telegram: "Forward me to tgbot",
+        discord: "Our Discord server"
+      },
+      ru: {
+        title: "Главная страница BSdevock",
+        description: "(Для использования бота требуется аккаунт в Telegram)",
+        download: "Скачать apk",
+        telegram: "Перейти к Telegram-боту",
+        discord: "Наш сервер в Discord"
+      }
+    };
+
+    // Detect browser language
+    const userLang = navigator.language || navigator.userLanguage;
+    const lang = userLang.startsWith('ru') ? 'ru' : 'en'; // Default to English if not Russian
+
+    // Update text content based on language
+    document.getElementById('title').textContent = translations[lang].title;
+    document.getElementById('description').textContent = translations[lang].description;
+    document.getElementById('download').textContent = translations[lang].download;
+    document.getElementById('telegram').textContent = translations[lang].telegram;
+    document.getElementById('discord').textContent = translations[lang].discord;
+  </script>
 </body>
 </html>
